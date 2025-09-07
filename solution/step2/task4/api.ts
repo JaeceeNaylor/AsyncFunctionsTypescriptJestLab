@@ -30,5 +30,5 @@ export async function fetchUserData(userId: string): Promise<User> {
     email: "john.doe@example.com",
   };
 
-  return exports.simulateApiCall(mockUser);
+  return simulateApiCall(mockUser);
 }
