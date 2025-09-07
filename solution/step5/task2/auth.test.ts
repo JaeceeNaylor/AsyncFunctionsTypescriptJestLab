@@ -46,9 +46,4 @@ describe("Jest async utilities and mocking", () => {
     mockLogin.mockResolvedValue("fake-token");
     await expect(mockLogin()).resolves.toBe("fake-token");
   });
-
-  test("mock rejected value", async () => {
-    mockLogin.mockRejectedValue(new Error("Service down"));
-    await expect(mockLogin()).rejects.toThrow("Service down");
-  });
 });

@@ -27,28 +27,4 @@ describe("Authentication Flow", () => {
       email: "admin@example.com",
     });
   });
-
-  test("authenticateAndFetchProfile fails with wrong credentials", async () => {
-    await expect(authenticateAndFetchProfile("user", "wrong")).rejects.toThrow(
-      "Invalid credentials"
-    );
-  });
-});
-
-describe("Jest async utilities and mocking", () => {
-  let mockLogin: jest.Mock;
-
-  beforeEach(() => {
-    mockLogin = jest.fn();
-  });
-
-  test("mock resolved value", async () => {
-    mockLogin.mockResolvedValue("fake-token");
-    await expect(mockLogin()).resolves.toBe("fake-token");
-  });
-
-  test("mock rejected value", async () => {
-    mockLogin.mockRejectedValue(new Error("Service down"));
-    await expect(mockLogin()).rejects.toThrow("Service down");
-  });
 });

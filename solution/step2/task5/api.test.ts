@@ -14,9 +14,7 @@ describe("fetchUserData", () => {
   });
 
   test("handles simulated API failure", async () => {
-    jest.spyOn(api, "simulateApiCall").mockRejectedValueOnce(
-      new Error("API request failed")
-    );
+    jest.spyOn(api, "simulateApiCall").mockRejectedValueOnce(new Error("API request failed"));
 
     await expect(api.fetchUserData("123")).rejects.toThrow("API request failed");
   });

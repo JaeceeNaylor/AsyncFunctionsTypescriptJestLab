@@ -25,6 +25,5 @@ export async function authenticateAndFetchProfile(
   username: string,
   password: string
 ): Promise<UserProfile> {
-  const token = await login(username, password);
-  return getUserProfile(token);
+  return Promise.reject(new Error("Not implemented"));
 }

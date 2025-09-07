@@ -12,12 +12,4 @@ describe("fetchUserData", () => {
   test("rejects with error if userId is invalid", async () => {
     await expect(api.fetchUserData("")).rejects.toThrow("Invalid userId");
   });
-
-  test("handles simulated API failure", async () => {
-    jest.spyOn(api, "simulateApiCall").mockRejectedValueOnce(
-      new Error("API request failed")
-    );
-
-    await expect(api.fetchUserData("123")).rejects.toThrow("API request failed");
-  });
 });

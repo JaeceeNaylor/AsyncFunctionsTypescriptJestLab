@@ -11,10 +11,6 @@ export async function login(username: string, password: string): Promise<string>
 }
 
 export async function getUserProfile(token: string): Promise<UserProfile> {
-  if (token !== "mock-token") {
-    throw new Error("Invalid token");
-  }
-
   return {
     username: "admin",
     email: "admin@example.com",
@@ -25,6 +21,5 @@ export async function authenticateAndFetchProfile(
   username: string,
   password: string
 ): Promise<UserProfile> {
-  const token = await login(username, password);
-  return getUserProfile(token);
+  return Promise.reject(new Error("Not implemented"));
 }

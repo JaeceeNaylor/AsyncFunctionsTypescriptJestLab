@@ -20,15 +20,11 @@ export function simulateApiCall<T>(data: T, shouldFail = false, delay = 300): Pr
 
 // Async function to fetch user data  - Complete during Step 1 - Implement a Data-Fetching Function
 export async function fetchUserData(userId: string): Promise<User> {
-  if (!userId) {
-    throw new Error("Invalid userId");
-  }
-
   const mockUser: User = {
     id: userId,
     name: "John Doe",
     email: "john.doe@example.com",
   };
 
-  return exports.simulateApiCall(mockUser);
+  return simulateApiCall(mockUser);
 }
