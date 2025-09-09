@@ -1,8 +1,10 @@
 import fs from "fs";
+import path from "path";
 
 describe("Task 6.3 - Add mockRejectedValue test", () => {
   it("adds a test for mock rejected value", () => {
-    const content = fs.readFileSync("../__tests__/auth.test.ts", "utf8");
+    const filePath = path.join(__dirname, "../__tests__/auth.test.ts");
+    const content = fs.readFileSync(filePath, "utf-8").trim();
 
     // Check test name
     expect(content).toMatch(/test\(["'`]mock rejected value["'`],\s*async\s*\(\)\s*=>/);

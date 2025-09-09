@@ -1,11 +1,12 @@
 import fs from "fs";
+import path from "path";
 
 describe("Task 5.3 - Add failed login test", () => {
-  const filePath = "../__tests__/auth.test.ts";
+  const filePath = path.join(__dirname, "../__tests__/auth.test.ts");
   let fileContent: string;
 
   beforeAll(() => {
-    fileContent = fs.readFileSync(filePath, "utf-8");
+    fileContent = fs.readFileSync(filePath, "utf-8").trim();  
   });
 
   it("contains a test block for failed login", () => {

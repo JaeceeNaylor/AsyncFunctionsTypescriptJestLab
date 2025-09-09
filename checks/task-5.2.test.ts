@@ -1,9 +1,10 @@
 import * as fs from "fs";
+import path from "path";
 
 describe("Task 5.2 - Add first login test", () => {
   it("should include a describe block with a successful login test", () => {
-    const content = fs.readFileSync("../__tests__/auth.test.ts", "utf-8");
-
+    const filePath = path.join(__dirname, "../__tests__/auth.test.ts");
+    const content = fs.readFileSync(filePath, "utf-8").trim();
     // Check import is still present
     const importRegex =
       /^import\s*{\s*login\s*,\s*getUserProfile\s*,\s*authenticateAndFetchProfile\s*}\s*from\s*["']..\/src\/auth["'];?/m;

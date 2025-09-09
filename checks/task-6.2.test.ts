@@ -1,8 +1,10 @@
 import fs from "fs";
+import path from "path";
 
 describe("Task 6.2 - Add first Jest mocking test", () => {
   it("defines mockLogin in beforeEach and tests mockResolvedValue", () => {
-    const content = fs.readFileSync("../__tests__/auth.test.ts", "utf8");
+    const filePath = path.join(__dirname, "../__tests__/auth.test.ts");
+    const content = fs.readFileSync(filePath, "utf-8").trim();
 
     // Check for mockLogin declaration
     expect(content).toMatch(/let\s+mockLogin:\s*jest\.Mock/);

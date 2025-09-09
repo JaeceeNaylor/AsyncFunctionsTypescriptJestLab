@@ -1,8 +1,10 @@
 import fs from "fs";
+import path from "path";
 
 describe("Task 5.7 - Add authenticateAndFetchProfile failure test", () => {
   it("contains a test that verifies authenticateAndFetchProfile fails with wrong credentials", () => {
-    const content = fs.readFileSync("../__tests__/auth.test.ts", "utf8");
+    const filePath = path.join(__dirname, "../__tests__/auth.test.ts");
+    const content = fs.readFileSync(filePath, "utf-8").trim();
 
     expect(content).toMatch(
       /test\(["'`]authenticateAndFetchProfile fails with wrong credentials["'`],\s*async\s*\(\)\s*=>\s*{[\s\S]*await expect\(authenticateAndFetchProfile\(["'`]user["'`],\s*["'`]wrong["'`]\)\.rejects\.toThrow\(\s*["'`]Invalid credentials["'`]\s*\)[\s\S]*}\)/

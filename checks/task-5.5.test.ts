@@ -1,12 +1,13 @@
 import fs from "fs";
+import path from "path";
 
 describe("Task 5.5 - Add test for getUserProfile with invalid token", () => {
-  const filePath = "../__tests__/auth.test.ts";
-  let fileContent: string;
-
-  beforeAll(() => {
-    fileContent = fs.readFileSync(filePath, "utf-8");
-  });
+  const filePath = path.join(__dirname, "../__tests__/auth.test.ts");
+    let fileContent: string;
+  
+    beforeAll(() => {
+      fileContent = fs.readFileSync(filePath, "utf-8").trim();  
+    });
 
   it("still has the import from ../src/auth", () => {
     expect(fileContent).toMatch(/import\s*{\s*login,\s*getUserProfile,\s*authenticateAndFetchProfile\s*}\s*from\s*["']..\/src\/auth["']/);
