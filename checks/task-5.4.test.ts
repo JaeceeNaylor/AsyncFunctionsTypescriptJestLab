@@ -28,7 +28,7 @@ describe("Task 5.4 - Add test for getUserProfile with valid token", () => {
   it("adds a test for getUserProfile with valid token", () => {
     expect(fileContent).toMatch(/test\(["']getUserProfile with valid token returns profile["']/);
     expect(fileContent).toMatch(
-        /await expect\(getUserProfile\("mock-token"\)\)\.resolves\.toEqual\s*\(\s*{\s*username:\s*["']admin["']\s*,\s*email:\s*["']admin@example\.com["']\s*}\s*\)/s
+        /await expect\(getUserProfile\("mock-token"\)\)\.resolves\.toEqual\s*\(\s*{\s*username:\s*["']admin["']\s*,\s*email:\s*["']admin@example\.com["']\s*,?\s*}\s*\)/s
     );
   });
 });
