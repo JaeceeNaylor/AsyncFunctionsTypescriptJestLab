@@ -1,7 +1,7 @@
 import fs from "fs";
 
 describe("Task 5.5 - Add test for getUserProfile with invalid token", () => {
-  const filePath = "src/auth.test.ts";
+  const filePath = "../__test__/auth.test.ts";
   let fileContent: string;
 
   beforeAll(() => {

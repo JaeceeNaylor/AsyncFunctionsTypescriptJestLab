@@ -3,7 +3,7 @@ import path from "path";
 
 describe("Task 3.2 - Add fetchUserData test", () => {
   it("should include a describe block for fetchUserData with a valid userId test", () => {
-    const filePath = path.join(__dirname, "../src/api.test.ts");
+    const filePath = path.join(__dirname, "../__test__/api.test.ts");
     const content = fs.readFileSync(filePath, "utf8");
 
     // Check for import

@@ -2,7 +2,7 @@ import * as fs from "fs";
 
 describe("Task 5.2 - Add first login test", () => {
   it("should include a describe block with a successful login test", () => {
-    const content = fs.readFileSync("src/auth.test.ts", "utf-8");
+    const content = fs.readFileSync("../__test__/auth.test.ts", "utf-8");
 
     // Check import is still present
     const importRegex =
