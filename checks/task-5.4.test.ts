@@ -1,7 +1,7 @@
 import fs from "fs";
 
 describe("Task 5.4 - Add test for getUserProfile with valid token", () => {
-  const filePath = "../__test__/auth.test.ts";
+  const filePath = "../__tests__/auth.test.ts";
   let fileContent: string;
 
   beforeAll(() => {

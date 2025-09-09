@@ -2,7 +2,7 @@ import fs from "fs";
 
 describe("Task 6.2 - Add first Jest mocking test", () => {
   it("defines mockLogin in beforeEach and tests mockResolvedValue", () => {
-    const content = fs.readFileSync("../__test__/auth.test.ts", "utf8");
+    const content = fs.readFileSync("../__tests__/auth.test.ts", "utf8");
 
     // Check for mockLogin declaration
     expect(content).toMatch(/let\s+mockLogin:\s*jest\.Mock/);

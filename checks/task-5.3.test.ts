@@ -1,7 +1,7 @@
 import fs from "fs";
 
 describe("Task 5.3 - Add failed login test", () => {
-  const filePath = "../__test__/auth.test.ts";
+  const filePath = "../__tests__/auth.test.ts";
   let fileContent: string;
 
   beforeAll(() => {

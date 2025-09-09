@@ -3,7 +3,7 @@ import path from "path";
 
 describe("Task 3.3 - Add invalid userId test", () => {
   it("should include a test that rejects when userId is invalid", () => {
-    const filePath = path.join(__dirname, "../__test__/api.test.ts");
+    const filePath = path.join(__dirname, "../__tests__/api.test.ts");
     const content = fs.readFileSync(filePath, "utf8");
 
     // Check for existing import
