@@ -14,6 +14,8 @@ describe("Task 3.2 - Add fetchUserData test", () => {
 
     // Check for test block with resolves.toEqual and correct object
     expect(content).toMatch(/test\s*\(\s*["']resolves with user data when given a valid userId["']\s*,/);
-    expect(content).toMatch(/await\s+expect\(api\.fetchUserData\("123"\)\)\.resolves\.toEqual\(\s*{\s*id:\s*["']123["'],\s*name:\s*["']John Doe["'],\s*email:\s*["']john\.doe@example\.com["']\s*}\s*\)/);
+    expect(content).toMatch(
+        /await\s+expect\(api\.fetchUserData\("123"\)\)\.resolves\.toEqual\(\s*{\s*id:\s*["']123["'][\s\S]*?name:\s*["']John Doe["'][\s\S]*?email:\s*["']john\.doe@example\.com["'][\s\S]*?}\s*\)/
+    );
   });
 });
