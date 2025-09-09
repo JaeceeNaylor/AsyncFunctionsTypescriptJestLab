@@ -1,34 +1,48 @@
 import fs from "fs";
 import path from "path";
 
-describe("Task 5.4 - Add test for getUserProfile with valid token", () => {
+describe("Task 5.5 - Add test for getUserProfile with invalid token", () => {
   const filePath = path.join(__dirname, "../__tests__/auth.test.ts");
   let fileContent: string;
 
   beforeAll(() => {
-    fileContent = fs.readFileSync(filePath, "utf-8").trim();  
+    fileContent = fs.readFileSync(filePath, "utf-8").trim();
   });
 
   it("still has the import from ../src/auth", () => {
-    expect(fileContent).toMatch(/import\s*{\s*login,\s*getUserProfile,\s*authenticateAndFetchProfile\s*}\s*from\s*["']..\/src\/auth["']/);
+    expect(fileContent).toMatch(
+      /import\s*{\s*login,\s*getUserProfile,\s*authenticateAndFetchProfile\s*}\s*from\s*["']..\/src\/auth["']/
+    );
   });
 
-  it("includes the describe block for Authentication Flow", () => {
+  it("still has the Authentication Flow describe block", () => {
     expect(fileContent).toMatch(/describe\(["']Authentication Flow["']/);
   });
 
-  it("keeps the successful login test", () => {
-    expect(fileContent).toMatch(/await expect\(login\("admin", "password"\)\)\.resolves\.toBe\("mock-token"\)/);
-  });
-
-  it("keeps the failed login test", () => {
-    expect(fileContent).toMatch(/await expect\(login\("wrong", "creds"\)\)\.rejects\.toThrow\("Invalid credentials"\)/);
-  });
-
-  it("adds a test for getUserProfile with valid token", () => {
-    expect(fileContent).toMatch(/test\(["']getUserProfile with valid token returns profile["']/);
+  it("still has the successful login test", () => {
     expect(fileContent).toMatch(
-        /await expect\(getUserProfile\("mock-token"\)\)\.resolves\.toEqual\s*\(\s*{\s*username:\s*["']admin["']\s*,\s*email:\s*["']admin@example\.com["']\s*,?\s*}\s*\)/s
+      /await expect\(login\("admin", "password"\)\)\.resolves\.toBe\("mock-token"\)/
+    );
+  });
+
+  it("still has the failed login test", () => {
+    expect(fileContent).toMatch(
+      /await expect\(login\("wrong", "creds"\)\)\.rejects\.toThrow\("Invalid credentials"\)/
+    );
+  });
+
+  it("still has the valid token profile test", () => {
+    expect(fileContent).toMatch(
+      /await expect\(getUserProfile\("mock-token"\)\)\.resolves\.toEqual\s*\(\s*{\s*username:\s*["']admin["']\s*,\s*email:\s*["']admin@example\.com["']\s*,?\s*}\s*\)/s
+    );
+  });
+
+  it("adds a test for getUserProfile with invalid token", () => {
+    expect(fileContent).toMatch(
+      /test\(["']getUserProfile with invalid token throws error["']/
+    );
+    expect(fileContent).toMatch(
+      /await expect\(getUserProfile\("bad-token"\)\)\.rejects\.toThrow\("Invalid token"\)/
     );
   });
 });
