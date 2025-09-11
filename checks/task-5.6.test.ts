@@ -14,17 +14,8 @@ describe("Task 5.6 - Add authenticateAndFetchProfile test", () => {
       /test\(["'`]authenticateAndFetchProfile succeeds with correct credentials["'`]/
     );
 
-    // Regex that allows either `await expect(...).resolves` OR `const profile = await ...; expect(profile).toEqual(...)`
-    const eitherPattern = new RegExp(
-      "(" +
-        // Style 1: await expect(...).resolves.toEqual({...})
-        "await\\s+expect\\(authenticateAndFetchProfile\\(\"admin\",\\s*\"password\"\\)\\)\\.resolves\\.toEqual\\s*\\(\\s*{\\s*username:\\s*[\"'`]admin[\"'`]\\s*,\\s*email:\\s*[\"'`]admin@example\\.com[\"'`]\\s*}\\s*\\)" +
-        "|" +
-        // Style 2: const profile = await ...; expect(profile).toEqual({...})
-        "const\\s+profile\\s*=\\s*await\\s+authenticateAndFetchProfile\\(\"admin\",\\s*\"password\"\\);[\\s\\S]*?expect\\(profile\\)\\.toEqual\\s*\\(\\s*{\\s*username:\\s*[\"'`]admin[\"'`]\\s*,\\s*email:\\s*[\"'`]admin@example\\.com[\"'`]\\s*}\\s*\\)" +
-      ")",
-      "s"
-    );
+    // One regex that matches either `await expect(...).resolves` OR `const profile = ...; expect(profile).toEqual(...)`
+    const eitherPattern = /(await\s+expect\(authenticateAndFetchProfile\("admin",\s*"password"\)\)\.resolves\.toEqual[\s\S]*?\{\s*username:\s*["'`]admin["'`]\s*,\s*email:\s*["'`]admin@example\.com["'`]\s*\}\s*\)|const\s+profile\s*=\s*await\s+authenticateAndFetchProfile\("admin",\s*"password"\);[\s\S]*?expect\(profile\)\.toEqual[\s\S]*?\{\s*username:\s*["'`]admin["'`]\s*,\s*email:\s*["'`]admin@example\.com["'`]\s*\}\s*)/;
 
     expect(content).toMatch(eitherPattern);
   });
